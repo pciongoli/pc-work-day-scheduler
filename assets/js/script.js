@@ -1,10 +1,11 @@
-var currentDayEl = document.querySelector("#currentDay")
-
-var currentDay = moment.format('MMMM Do YYYY, h:mm:ss:a');
-
-currentDayEl(currentDay)
+$(function() {});
 
 // link current day and time to currentDay id via moment.js
+var currentDayEl = moment().format('MMMM Do YYYY, h:mm:ss:a');
+
+$("#currentDay").text(currentDayEl);
+
+
 
 // create an array for each of the work day hours
 
