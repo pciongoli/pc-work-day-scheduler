@@ -1,6 +1,6 @@
 // put javascript code in $(document).ready(function) so that everything loads in all together
 $( document ).ready(function() {
-    var currentDayEl = moment().format('MMMM Do YYYY, h:mm:ss a');
+    var currentDayEl = moment().format('MMMM Do YYYY');
     // use jquery to display text
     $("#currentDay").text(currentDayEl);
 
@@ -16,6 +16,8 @@ $( document ).ready(function() {
     var hour05 = $('#5-pm');
 
 
+
+   
 
     
     
