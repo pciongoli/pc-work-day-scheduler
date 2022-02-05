@@ -4,6 +4,8 @@ $( document ).ready(function() {
     // use jquery to display text
     $("#currentDay").text(currentDayEl);
 
+     var currentHour = moment().format("H A");
+
     // create a variable for each hour id
     var hour09 = $('#9-am');
     var hour10 = $('#10-am');
@@ -15,35 +17,28 @@ $( document ).ready(function() {
     var hour04 = $('#4-pm');
     var hour05 = $('#5-pm');
 
+    // link current day and time to currentDay id via moment.js
+    // link the current time to each hour
 
 
-   
+
+    hourArray = [hour09, hour10, hour11, hour12, hour01, hour02, hour03, hour04, hour05];
+
+    //  create a function that will change the color of the task Use classes that were provided in CSS
+
+
 
     
-    
-
-})
-
-
-// create a variable for each id with class time-block
-
-// link current day and time to currentDay id via moment.js
 
 
 
+});
 
 
-// link the current time te each hour
 
-
-//  create a function that will change the color of the task Use classes that were provided in CSS
 
 // add save button for each individual time block that saves text event to local storage
 
 // add hover to each button
-
-// add event persistence
-
-
 
 // figure out how to get time to count in real time.
