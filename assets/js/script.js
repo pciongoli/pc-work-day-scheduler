@@ -27,6 +27,8 @@ $( document ).ready(function() {
                 $(this).addClass("future");
 
             } else {
+                $(this).removeClass("future");
+                $(this).removeClass("past");
                 $(this).addClass("present");
             }
         });
