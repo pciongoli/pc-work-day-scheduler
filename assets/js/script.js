@@ -4,41 +4,46 @@ $( document ).ready(function() {
     // use jquery to display text
     $("#currentDay").text(currentDayEl);
 
-     var currentHour = moment().format("H A");
-
-    // create a variable for each hour id
-    var hour09 = $('#9-am');
-    var hour10 = $('#10-am');
-    var hour11 = $('#11-am');
-    var hour12 = $('#12-pm');
-    var hour01 = $('#1-pm');
-    var hour02 = $('#2-pm');
-    var hour03 = $('#3-pm');
-    var hour04 = $('#4-pm');
-    var hour05 = $('#5-pm');
+     
 
     // link current day and time to currentDay id via moment.js
     // link the current time to each hour
 
-
-
-    hourArray = [hour09, hour10, hour11, hour12, hour01, hour02, hour03, hour04, hour05];
-
     //  create a function that will change the color of the task Use classes that were provided in CSS
+    const timeBlocks = document.getElementsByClassName("time-block");    
+    let currentHour = parseInt(moment().format('H'));
+
+    Array.from(timeBlocks).forEach(timeBlocks => {
+        let timeBlockId = timeBlocks.id,
+            timeBlockHour;
+        if (timeBlockId) {
+            timeBlockHour = parseInt(timeBlockId);
+        }
+        $(".time-block").each(function () {
+            if (currentHour > timeBlockHour) {
+                $(this).removeClass("present");
+                $(this).removeClass("future");
+                $(this).addClass("past");
 
 
+            } else if (currentHour === timeBlockHour) {
+                $(this).removeClass("past");
+                $(this).removeClass("future");
+                $(this).addClass("present");
 
-    
+
+            } else {
+                $(this).removeClass("past");
+                $(this).removeClass("present");
+                $(this).addClass("future");
+            }
+        });
+
+    });
+
+
 
 
 
 });
 
-
-
-
-// add save button for each individual time block that saves text event to local storage
-
-// add hover to each button
-
-// figure out how to get time to count in real time.
