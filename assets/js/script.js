@@ -20,6 +20,7 @@ $( document ).ready(function() {
             timeBlockHour = parseInt(timeBlockId);
         }
         $(".time-block").each(function () {
+            // series of if statements to determing if it is before, present or future and change color 
             if (currentHour > timeBlockHour) {
                 $(this).removeClass("present");
                 $(this).removeClass("future");
@@ -38,11 +39,15 @@ $( document ).ready(function() {
                 $(this).addClass("future");
             }
         });
-
     });
 
 
+    $(".saveBtn").on("click", function() {
+        var enteredTask = $(this).prev("textarea").val();
+        var hour = $(this).parent().attr("id");
 
+        localStorage.setItem(hour, enteredTask);
 
+    });
 
 });
