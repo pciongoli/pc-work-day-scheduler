@@ -8,11 +8,10 @@ $( document ).ready(function() {
 
     // link current day and time to currentDay id via moment.js
     // link the current time to each hour
-
-    //  create a function that will change the color of the task Use classes that were provided in CSS
     const timeBlocks = document.getElementsByClassName("time-block");    
     let currentHour = parseInt(moment().format('H'));
 
+    // create array that will make comparing the hour to the task hour easier
     Array.from(timeBlocks).forEach(timeBlocks => {
         let timeBlockId = timeBlocks.id,
             timeBlockHour;
@@ -27,27 +26,39 @@ $( document ).ready(function() {
                 $(this).addClass("past");
 
 
-            } else if (currentHour === timeBlockHour) {
+            } else if (currentHour < timeBlockHour) {
                 $(this).removeClass("past");
                 $(this).removeClass("future");
-                $(this).addClass("present");
+                $(this).addClass("future");
 
 
             } else {
                 $(this).removeClass("past");
                 $(this).removeClass("present");
-                $(this).addClass("future");
+                $(this).addClass("present");
             }
         });
     });
 
 
+    // use jquery to add key and variable to localStore with a click function to the saveBtn
     $(".saveBtn").on("click", function() {
         var enteredTask = $(this).prev("textarea").val();
         var hour = $(this).parent().attr("id");
 
         localStorage.setItem(hour, enteredTask);
-
+    
     });
+
+
+    $("#9 textarea").val(localStorage.getItem("9"))
+    $("#10 textarea").val(localStorage.getItem("10"))
+    $("#11 textarea").val(localStorage.getItem("11"))
+    $("#12 textarea").val(localStorage.getItem("12"))
+    $("#13 textarea").val(localStorage.getItem("13"))
+    $("#14 textarea").val(localStorage.getItem("14"))
+    $("#15 textarea").val(localStorage.getItem("15"))
+    $("#16 textarea").val(localStorage.getItem("16"))
+    $("#17 textarea").val(localStorage.getItem("17"))
 
 });
