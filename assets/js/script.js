@@ -21,20 +21,12 @@ $( document ).ready(function() {
         $(".time-block").each(function () {
             // series of if statements to determing if it is before, present or future and change color 
             if (currentHour > timeBlockHour) {
-                $(this).removeClass("present");
-                $(this).removeClass("future");
                 $(this).addClass("past");
 
-
             } else if (currentHour < timeBlockHour) {
-                $(this).removeClass("past");
-                $(this).removeClass("future");
                 $(this).addClass("future");
 
-
             } else {
-                $(this).removeClass("past");
-                $(this).removeClass("present");
                 $(this).addClass("present");
             }
         });
@@ -50,7 +42,7 @@ $( document ).ready(function() {
     
     });
 
-
+    // add back each key value associated with each id/item
     $("#9 textarea").val(localStorage.getItem("9"))
     $("#10 textarea").val(localStorage.getItem("10"))
     $("#11 textarea").val(localStorage.getItem("11"))
